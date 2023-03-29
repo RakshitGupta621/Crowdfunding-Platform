@@ -46,7 +46,16 @@ contract MyContract {
         }
     } 
 
-    // function getDonators() {}
+    function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory){
+        return (campaigns[_id].donators, campaigns[_id].donations);
+    }
 
-    // function getCampaigns() {}
+    function getCampaigns() public view returns (Campaign[] memory){
+        Campaign[] memory allCampaigns = new Campaign[](countOfCampaigns);
+        for (uint i = 0; i < countOfCampaigns; i++) {
+            Campaign storage item = campaigns[i];
+            allCampaigns[i] = item;
+        }
+        return allCampaigns;
+    }
 }
