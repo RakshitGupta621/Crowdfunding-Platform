@@ -11,13 +11,13 @@ const App = () => {
         <Sidebar/>
       </div>
       <div>
-        <Navbar/>
-        <Home/>
-        
-        {/* <Routes> */}
-          {/* <Route path="/" element={<Home/>} / > */}
-
-        {/* </Routes> */}
+        {/* <Navbar/> */}
+        <Routes>
+          <Route path="/" element={<Home/>} / >
+          <Route path="/profile" element={<Profile/>} / >
+          <Route path="/createcampaign" element={<CreateCampaign/>} / >
+          <Route path="/campaigndetail" element={<CampaignDetail/>} / >
+        </Routes>
       </div>
     </div>
   )
