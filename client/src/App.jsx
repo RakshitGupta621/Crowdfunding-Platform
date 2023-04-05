@@ -6,18 +6,19 @@ import {Navbar, Sidebar} from './components/index'
 
 const App = () => {
   return (
-    <div>
-      <div style={{display: 'flex'}}>
+    <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
+      <div className="sm:flex hidden mr-10 relative">
         <Sidebar />
-        <Navbar/>
       </div>
-      <div>
+
+      <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
+        <Navbar />
         
         <Routes>
-          <Route path="/" element={<Home/>} / >
-          <Route path="/profile" element={<Profile/>} / >
-          <Route path="/createcampaign" element={<CreateCampaign/>} / >
-          <Route path="/campaigndetail" element={<CampaignDetail/>} / >
+          <Route path="/" element={<Home/>} />
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/createcampaign" element={<CreateCampaign/>} />
+          <Route path="/campaigndetail" element={<CampaignDetail/>} />
         </Routes>
       </div>
     </div>
