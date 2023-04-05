@@ -7,11 +7,12 @@ import {Navbar, Sidebar} from './components/index'
 const App = () => {
   return (
     <div>
-      <div>
-        <Sidebar/>
+      <div style={{display: 'flex'}}>
+        <Sidebar />
+        <Navbar/>
       </div>
       <div>
-        <Navbar/>
+        
         <Routes>
           <Route path="/" element={<Home/>} / >
           <Route path="/profile" element={<Profile/>} / >
