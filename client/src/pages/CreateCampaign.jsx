@@ -1,16 +1,17 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useStateContext } from '../context/index';
 import {ethers} from 'ethers' //libaray used to have some interaction with smart contract
-import { loader, money } from '../assets'
 import { IsImage } from '../tools'
 // import {FormData} from '../components/index'
 import { CustomButton,FormData } from '../components'
 
 
 const CreateCampaign = () => {
-  const navigation=useNavigate()
-  const [isloading, setisloading] = useState(false)
-  const [form, setform] = useState({
+  const navigate = useNavigate()
+  const [isloading, setIsloading] = useState(false)
+  const { createCampaign } = useStateContext();
+  const [form, setForm] = useState({
     name:'',
     title:'',
     description:'',
@@ -19,13 +20,29 @@ const CreateCampaign = () => {
     image:''
   });
 
-  const handleFormDataValue=(formvariable,e)=>{
-    setform({...form,[formvariable]:e.target.value})
+  const handleFormDataValue=(formvariable, e)=>{
+    setForm({...form,[formvariable]:e.target.value})
   }
-  const handleSubmit=(e)=>{
+
+  const handleSubmit = async(e) => {
       e.preventDefault(); // prevent loading of page, in react
       // need to create this, but first need web3 context inside application
       console.log(form)
+
+      IsImage(form.image, async(exists) => {
+        e.preventDefault();
+        IsImage(form.image, async(exists) => {
+          if(exists) {
+            setIsloading(true);
+            await createCampaign({...form, target: ethers.utils.parseUnits(form.target, 18)})
+            setIsloading(false);
+            navigate('/');
+          } else {
+            alert('Provide valid image URL:')
+            setform({...form, image:''});
+          }
+        })
+      })
   }
   return (
     <div className='bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4'>
