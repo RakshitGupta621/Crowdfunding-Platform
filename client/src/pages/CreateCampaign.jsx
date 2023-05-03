@@ -38,6 +38,7 @@ const CreateCampaign = () => {
             setIsloading(false);
             navigate('/');
           } else {
+            console.log('CANNOT GET THE DATA')
             alert('Provide valid image URL:')
             setform({...form, image:''});
           }
