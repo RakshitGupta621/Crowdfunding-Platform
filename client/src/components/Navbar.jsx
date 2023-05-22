@@ -44,14 +44,14 @@ const Navbar = () => {
         <CustomButton
           btnType="button"
           title={address ? "Create a campaign" : "Connect"}
-          styles={address ? "bg-[#a21dc0]" : "bg-[#a21dc0]"}
+          styles={address ? "bg-[#4287f5]" : "bg-[#4287f5]"}
           handleClick={() => {
             if (address) navigate("create-campaign");
             else connect();
           }}
         />
 
-        <Link to="/profile">
+        {/* <Link to="/profile">
           <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
             <img
               src={profile}
@@ -59,18 +59,18 @@ const Navbar = () => {
               className="w-[60%] h-[60%] object-contain"
             />
           </div>
-        </Link>
+        </Link> */}
       </div>
 
       {/* Small screen navigation */}
       <div className="sm:hidden flex justify-between items-center relative">
-        <div className="w-[40px] h-[40px] rounded-[10px] bg-[#2c2f32] flex justify-center items-center cursor-pointer">
+        {/* <div className="w-[40px] h-[40px] rounded-[10px] bg-[#2c2f32] flex justify-center items-center cursor-pointer">
           <img
             src={logo}
             alt="user"
             className="w-[60%] h-[60%] object-contain"
           />
-        </div>
+        </div> */}
 
         <img
           src={menu}

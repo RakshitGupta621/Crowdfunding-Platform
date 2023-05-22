@@ -23,17 +23,16 @@ const Home = () => {
   return (
     <>
       <header>
-        <div className="py-8">
-          <h1 className="text-white text-6xl mb-8">
-            The Crypto{" "}
-            <span className="text-[#a21dc0] font-bold">Crowdfunding&nbsp;</span>
-            Revolution
+        <div className="py-4">
+          <h1 className="text-white text-5xl mb-8">
+            <span className="text-[#4287f5] font-bold">Crowdfunding&nbsp;</span>
+            Platform 
           </h1>
-          <h2 className="text-white text-2xl mb-8 tracking-wider font-light">
+          <h2 className="text-white text-2xl mb-4 tracking-wider font-light">
             Raise money for what matters to you most. Donate to support others.{" "}
           </h2>
         </div>
-        <hr className="mb-16" />
+        <hr className="mb-12" />
       </header>
 
       <DisplayCampaigns
