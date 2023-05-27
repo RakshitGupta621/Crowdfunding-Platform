@@ -29,7 +29,7 @@ const Navbar = () => {
         />
 
         <div
-          className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer"
+          className="w-[72px] h-full rounded-[20px] bg-[#FFFFFF] flex justify-center items-center cursor-pointer"
           onClick={handleSearch}
         >
           <img
