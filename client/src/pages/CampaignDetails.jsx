@@ -15,7 +15,7 @@ const CampaignDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [donators, setDonators] = useState([]);
-
+  let time=Date.now()
   const remainingDays = daysLeft(state.deadline);
 
   const fetchDonators = async () => {
@@ -36,11 +36,11 @@ const CampaignDetails = () => {
     navigate("/");
     setIsLoading(false);
   };
-
+   
   return (
     <div>
       {isLoading && <Loader />}
-
+      {console.log(state.deadline)}
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
           <img
@@ -143,7 +143,7 @@ const CampaignDetails = () => {
         </div>
 
         {
-          state.amountCollected<state.target?
+          state.amountCollected<state.target && state.deadline>time?
           <div className="flex-1">
           <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">
             Fund
