@@ -142,7 +142,9 @@ const CampaignDetails = () => {
           </div>
         </div>
 
-        <div className="flex-1">
+        {
+          state.amountCollected<state.target?
+          <div className="flex-1">
           <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">
             Fund
           </h4>
@@ -179,6 +181,9 @@ const CampaignDetails = () => {
             </div>
           </div>
         </div>
+        :<div/>
+        }
+        
       </div>
     </div>
   );
