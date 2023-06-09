@@ -47,15 +47,6 @@ export const StateContextProvider = ({ children }) => {
 
   const getCampaigns = async () => {
     var campaigns = await contract.call("getCampaigns");
-    const len = campaigns.length;
-    var donations = [];
-    for (let i = len-1; i>=0; i--) {
-          var time=new Date().getTime()
-          if(campaigns[i].deadline.toNumber()>=time && campaigns[i].target>campaigns[i].amountCollected){
-              donations.push(campaigns[i]);
-          }
-    }
-    campaigns=donations
     const parsedCampaings = campaigns.map((campaign, i) => ({
       owner: campaign.owner,
       title: campaign.title,
