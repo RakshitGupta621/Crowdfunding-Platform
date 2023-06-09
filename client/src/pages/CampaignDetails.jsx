@@ -36,11 +36,10 @@ const CampaignDetails = () => {
     navigate("/");
     setIsLoading(false);
   };
-   
+
   return (
     <div>
       {isLoading && <Loader />}
-      {console.log(state.deadline)}
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
           <img
@@ -65,7 +64,7 @@ const CampaignDetails = () => {
         <div className="flex md:w-[150px] w-full flex-wrap justify-between gap-[30px]">
           <CountBox
             title="Days Left"
-            value={remainingDays < 0 ? "None" : remainingDays}
+            value={remainingDays < 1 ? "None" : remainingDays}
           />
           <CountBox
             title={`Raised of ${state.target}`}
@@ -171,13 +170,19 @@ const CampaignDetails = () => {
                   Support the project just because it speaks to you.
                 </p>
               </div>
+              {
+                (amount.length==0 || Number(amount)===0)?
 
+                <CustomButton/>
+                :
               <CustomButton
                 btnType="button"
                 title="Fund Campaign"
                 styles="w-full bg-[#8c6dfd]"
                 handleClick={handleDonate}
               />
+              
+              }
             </div>
           </div>
         </div>
